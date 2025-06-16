@@ -1,8 +1,6 @@
 import { prisma } from "./../src/lib/prisma";
 import { PrismaClient } from "@prisma/client";
 import * as bycrypt from "bcryptjs";
-import { create } from "domain";
-import { title } from "process";
 
 const prismaClient = new PrismaClient();
 
