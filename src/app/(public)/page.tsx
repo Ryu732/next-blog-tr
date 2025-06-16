@@ -1,3 +1,18 @@
-export default function PostsPage() {
-  return <div></div>;
+import { getPosts } from "@/lib/post";
+import PostCard from "@/components/post/PostCard";
+import { Post } from "@/types/post";
+
+export default async function PostsPage() {
+  const posts = (await getPosts()) as Post[];
+  return (
+    <>
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post}></PostCard>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
