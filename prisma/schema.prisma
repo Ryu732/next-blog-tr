@@ -20,8 +20,8 @@ model User{
 	email String @unique
 	password String
 	posts Post[]
-	createdAt Datetime @default(now())
-	updatedAt Datetime @updatedAt
+	createdAt DateTime @default(now())
+	updatedAt DateTime @updatedAt
 }
 
 model Post{
@@ -32,6 +32,6 @@ model Post{
 	published Boolean @default(true)
 	authorId String
 	author User @relation(fields:[authorId], references:[id], onDelete:Cascade)
-	createdAt Datetime @default(now())
-	updatedAt Datetime @updatedAt
+	createdAt DateTime @default(now())
+	updatedAt DateTime @updatedAt
 }
